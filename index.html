@@ -546,34 +546,39 @@
                         <div class="col-md-6 col-sm-6">
                             <div class="form-input-group">
                                 <i class="fa fa-envelope"></i><input type="email" name="Email" class=""
-                                                                     placeholder="Your email"
+                                                                     placeholder="Your Email"
                                                                      required>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6">
                             <div class="form-input-group">
                                 <i class="fa fa-user"></i><input name="Name" class=""
-                                                                 placeholder="Your name"
+                                                                 placeholder="Your Name"
                                                                  required>
+                            </div>
+                        </div>
+                    
+                        
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-input-group">
+                                <i class="fa fa-user"></i> <input type="tel" name="Phone" pattern="^\+?[0-9]{1,4}?[-.\s]?([0-9]{1,4}[-.\s]?){1,6}$"
+                                                                   placeholder="Phone" required>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6">
                             <div class="form-input-group">
-                                <i class="fa fa-phone"></i><input type="tel" name="Phone" class="" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                                                                 placeholder="Phone"
-                                                                 required>
+                                <i class="fa fa-users" aria-hidden="true"></i><input name="PeopleAccompanying" class="" type ="number" min="0"
+                                max="10" placeholder="Number Of People Accompanying"
+                                                                  required>
                             </div>
                         </div>
                         
                     </div>
                     <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group">
-                                <i class="fa fa-users"></i><input name="PeopleAccompanying" class="" type ="number" min="0"
-                                max="10" placeholder="Number Of People Accompanying"
-                                                                  required>
-                            </div>
-                        </div>
+
                         <div class="col-md-6 col-sm-6">
                             <div class="form-input-group">
                                 <i class="fa fa-key"></i><input type="number" name="invite_code" id="invite_code"
@@ -582,9 +587,7 @@
                                                                 required>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12" id="alert-wrapper"></div>
+                        <div class="col-md-6 col-sm-6" id="alert-wrapper"></div>
                     </div>
                     <button class="btn-fill rsvp-btn">
                         Yes,
