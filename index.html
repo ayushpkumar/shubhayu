@@ -131,9 +131,9 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-3 hidden-sm hidden-xs"><img src="img/IMG_1342.png" class="wp1"></div>
+            <div class="col-md-3 hidden-sm hidden-xs"><img src="img/IMG_1996.png" class="wp1"></div>
             <div class="col-md-6">
-                <!-- <p>
+               <!--  <p>
                     I first saw Antara in the Fall of 2008 when we started our undergrad. I was instantly attracted to
                     her but was far too nervous to speak to her. I had told my friend I liked her and news had traveled
                     fast and she soon found out. Her first reaction was "Who is Ram?" and she began searching for me in
@@ -142,7 +142,7 @@
                     and the rest is history :)
                 </p> -->
             </div>
-            <div class="col-md-3 hidden-sm hidden-xs"><img src="img/IMG_1393.png" class="wp2"></div>
+            <div class="col-md-3 hidden-sm hidden-xs"><img src="img/IMG_1994.png" class="wp2"></div>
         </div>
         <div class="row">
             <div class="col-sm-4 col-sm-push-2 col-xs-6 hidden-md hidden-lg"><img src="img/IMG_1342.png" class="wp8"></div>
@@ -539,59 +539,63 @@
             <div class="col-md-6 col-md-offset-3">
                 <h3>What are you waiting for?</h3>
                 <p>We would greatly appreciate if you could RSVP before 15th of November '24</p>
-                <form id="rsvp-form" class="rsvp-form"
-                      action=""
-                      method="POST">
+                <form id="rsvp-form" class="rsvp-form" action="" method="POST">
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
                             <div class="form-input-group">
-                                <i class="fa fa-envelope"></i><input type="email" name="Email" class=""
-                                                                     placeholder="Your Email"
-                                                                     required>
+                                <i class="fa fa-envelope"></i>
+                                <input type="email" name="Email" class="" placeholder="Your Email" required>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6">
                             <div class="form-input-group">
-                                <i class="fa fa-user"></i><input name="Name" class=""
-                                                                 placeholder="Your Name"
-                                                                 required>
+                                <i class="fa fa-user"></i>
+                                <input name="Name" class="" placeholder="Your Name" required>
                             </div>
                         </div>
+                    </div>
                     
-                        
-                    </div>
                     <div class="row">
-
                         <div class="col-md-6 col-sm-6">
                             <div class="form-input-group">
-                                <i class="fa fa-user"></i> <input type="tel" name="Phone" pattern="^\+?[0-9]{1,4}?[-.\s]?([0-9]{1,4}[-.\s]?){1,6}$"
-                                                                   placeholder="Phone" required>
+                                <i class="fa fa-user"></i>
+                                <input type="tel" name="Phone" pattern="^\+?[0-9]{1,4}?[-.\s]?([0-9]{1,4}[-.\s]?){1,6}$" placeholder="Phone" required>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6">
                             <div class="form-input-group">
-                                <i class="fa fa-users" aria-hidden="true"></i><input name="PeopleAccompanying" class="" type ="number" min="0"
-                                max="10" placeholder="Number Of People Accompanying"
-                                                                  required>
+                                <i class="fa fa-users" aria-hidden="true"></i>
+                                <input name="PeopleAccompanying" class="" type="number" min="0" max="10" placeholder="Number Of People Accompanying" required>
                             </div>
                         </div>
-                        
                     </div>
+                    
                     <div class="row">
-
                         <div class="col-md-6 col-sm-6">
                             <div class="form-input-group">
-                                <i class="fa fa-key"></i><input type="number" name="invite_code" id="invite_code"
-                                                                class="" min="0"
-                                                                placeholder="Invite code"
-                                                                required>
+                                <i class="fa fa-key"></i>
+                                <input type="number" name="invite_code" id="invite_code" class="" min="0" placeholder="Invite code" required>
                             </div>
                         </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-input-group">
+                                <i class="fa fa-question-circle"></i>
+                                <select name="attending" id="attending" class="" required>
+                                    <option value="" disabled selected>Will you be attending?</option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="row">
                         <div class="col-md-6 col-sm-6" id="alert-wrapper"></div>
+                        
                     </div>
+                
                     <button class="btn-fill rsvp-btn">
-                        Yes,
-                        that's me!
+                        Yes, that's me!
                     </button>
                 </form>
             </div>
