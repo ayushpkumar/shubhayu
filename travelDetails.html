@@ -186,7 +186,6 @@
                                 <select name="accommodation" class="" required>
                                     <option value="" disabled selected>Accommodation Preference</option>
                                     <option value="Hotel">Hotel</option>
-                                    <option value="Airbnb">Airbnb</option>
                                     <option value="Staying with Family/Friends">Staying with Family/Friends</option>
                                     <option value="Other">Other</option>
                                 </select>
@@ -194,8 +193,8 @@
                         </div>
                         <div class="col-md-6 col-sm-6">
                             <div class="form-input-group">
-                                <i class="fa fa-comment"></i>
-                                <textarea name="notes" class="" rows="2" placeholder="Additional Notes"></textarea>
+                                <i class="fa fa-phone"></i>
+                                <input type="tel" name="Phone" pattern="^\+?[0-9]{1,4}?[-.\s]?([0-9]{1,4}[-.\s]?){1,6}$" placeholder="Your Phone" required>
                             </div>
                         </div>
                     </div>
