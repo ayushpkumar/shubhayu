@@ -24,6 +24,49 @@
     <link rel="manifest" href="manifest.json">
     <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
 
+    <style>
+        .form-input-group {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 15px;
+            background-color: #f9f9f9;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        .form-input-group i {
+            color: #aaa;
+            margin-right: 10px;
+            font-size: 18px;
+        }
+        .form-input-group input,
+        .form-input-group select {
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 16px;
+            padding: 5px;
+            background-color: transparent;
+        }
+        .form-input-group input::placeholder {
+            color: #bbb;
+        }
+        button {
+            width: 100%;
+            background-color: #d4a373;
+            color: #fff;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #b38356;
+        }
+    </style>
     <script>
         // load css files from CDN if local node_modules fail
         function loadCssFromCDN(css) {
@@ -59,6 +102,7 @@
     <link rel="stylesheet" href="node_modules/animate.css/animate.min.css" onerror="loadCssFromCDN('animate.css')">
     <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css" onerror="loadCssFromCDN('font-awesome.css')">
     <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
 </head>
 <body id="top">
 <!--[if lt IE 8]>
@@ -134,12 +178,10 @@
                     <!-- Travel Details -->
                     <div class="form-input-group">
                         <i class="fa fa-calendar"></i>
-                        <label for="arrival_date" class="sr-only">Arrival Date</label>
                         <input type="date" id="arrival_date" name="arrival_date" placeholder="Arrival Date" required>
                     </div>
                     <div class="form-input-group">
                         <i class="fa fa-calendar"></i>
-                        <label for="departure_date" class="sr-only">Departure Date</label>
                         <input type="date" id="departure_date" name="departure_date" placeholder="Departure Date" required>
                     </div>
     
@@ -176,6 +218,7 @@
 
 
 
+
 <footer>
     <div class="container">
         <div class="row">
@@ -196,6 +239,34 @@
 <script src="js/scripts.min.js"></script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoU6ZfEWHI3Wk5-eIieaa5WNZk-zcPvOk&callback=initMap"></script>
+
+        <script>
+            document.getElementById('travel-form').onsubmit = function(e) {
+                e.preventDefault(); // Prevent default form submission
+        
+                // Submit the form data using AJAX to avoid reloading the page
+                var form = document.getElementById('travel-form');
+                var formData = new FormData(form);
+                
+                fetch(form.action, {
+                    method: form.method,
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.result === 'success') {
+                        document.getElementById('success-message').style.display = 'block';
+                        form.reset(); // Reset the form after successful submission
+                    } else {
+                        alert('There was an issue submitting your details. Please try again.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred. Please try again later.');
+                });
+            };
+        </script>
 <!-- Google Analytics -->
 <script>
     document.getElementById('travel-form').onsubmit = function(e) {
