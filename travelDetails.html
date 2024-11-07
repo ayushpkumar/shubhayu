@@ -144,9 +144,11 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
-                <h3>What are you waiting for?</h3>
-                <p>We would greatly appreciate if you could RSVP before 15th of November '24</p>
-                <form id="rsvp-form" class="rsvp-form" action="" method="POST">
+                <h3>Wedding Travel Details Form</h3>
+                <p>We appreciate if you could submit your travel details before 15th of November '24</p>
+                <form id="travel-form" class="rsvp-form" action="https://script.google.com/macros/s/AKfycbwffnGlkHEzOAZWSUs26AvVCx9Gq92oHBxFLSaDHEfp4DX-d1rW5pCkpBjrU8hODBchhw/exec" method="POST">
+    
+                    <!-- Guest Information -->
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
                             <div class="form-input-group">
@@ -161,53 +163,64 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group">
-                                <i class="fa fa-user"></i>
-                                <input type="tel" name="Phone" pattern="^\+?[0-9]{1,4}?[-.\s]?([0-9]{1,4}[-.\s]?){1,6}$" placeholder="Phone" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group">
-                                <i class="fa fa-users" aria-hidden="true"></i>
-                                <input name="PeopleAccompanying" class="" type="number" min="0" max="10" placeholder="Number Of People Accompanying" required>
-                            </div>
-                        </div>
-                    </div>
-                    
+    
+                    <!-- Invite Code -->
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
                             <div class="form-input-group">
                                 <i class="fa fa-key"></i>
-                                <input type="number" name="invite_code" id="invite_code" class="" min="0" placeholder="Invite code" required>
+                                <input type="text" name="invite_code" id="invite_code" class="" placeholder="Invite Code" required>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Travel Details -->
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-input-group">
+                                <i class="fa fa-calendar"></i>
+                                <input type="date" name="arrival_date" class="" required>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6">
                             <div class="form-input-group">
-                                <i class="fa fa-question-circle"></i>
-                                <select name="attending" id="attending" class="" required>
-                                    <option value="" disabled selected>Will you be attending?</option>
-                                    <option value="yes">Yes</option>
-                                    <option value="no">No</option>
-                                </select>
+                                <i class="fa fa-calendar"></i>
+                                <input type="date" name="departure_date" class="" required>
                             </div>
                         </div>
                     </div>
-                
+    
+                    <!-- Accommodation Preference -->
                     <div class="row">
-                        <div class="col-md-6 col-sm-6" id="alert-wrapper"></div>
-                        
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-input-group">
+                                <i class="fa fa-bed"></i>
+                                <select name="accommodation" class="" required>
+                                    <option value="" disabled selected>Accommodation Preference</option>
+                                    <option value="Hotel">Hotel</option>
+                                    <option value="Airbnb">Airbnb</option>
+                                    <option value="Staying with Family/Friends">Staying with Family/Friends</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-input-group">
+                                <i class="fa fa-comment"></i>
+                                <textarea name="notes" class="" rows="2" placeholder="Additional Notes"></textarea>
+                            </div>
+                        </div>
                     </div>
-                
-                    <button class="btn-fill rsvp-btn">
-                        Yes, that's me!
+    
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn-fill rsvp-btn">
+                        Submit Travel Details
                     </button>
                 </form>
             </div>
         </div>
     </div>
+    
 </section>
 
 <footer>
