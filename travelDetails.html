@@ -98,7 +98,6 @@
 
 
 <section class="rsvp text-center" id="rsvp">
-
     <div id="rsvp-modal" class="modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -123,70 +122,59 @@
                 <form id="travel-form" class="rsvp-form" action="https://script.google.com/macros/s/AKfycbyGkvOAt9U7NIRqqIzMgkYEUOLUSBN0rJJM35g3hA6hoDhIQ0qybYJlsw9PEXGGKnKaSQ/exec" method="POST">
     
                     <!-- Guest Information -->
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group">
-                                <i class="fa fa-envelope"></i>
-                                <input type="email" name="Email" class="" placeholder="Your Email" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group">
-                                <i class="fa fa-user"></i>
-                                <input name="Name" class="" placeholder="Your Name" required>
-                            </div>
-                        </div>
+                    <div class="form-input-group">
+                        <i class="fa fa-envelope"></i>
+                        <input type="email" name="Email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-input-group">
+                        <i class="fa fa-user"></i>
+                        <input type="text" name="Name" placeholder="Your Name" required>
                     </div>
     
-                    
-    
                     <!-- Travel Details -->
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group">
-                                <i class="fa fa-calendar">Arrival Date</i>
-                                <input type="date" name="arrival_date" class="" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group">
-                                <i class="fa fa-calendar">Departure Date</i>
-                                <input type="date" name="departure_date" class="" required>
-                            </div>
-                        </div>
+                    <div class="form-input-group">
+                        <i class="fa fa-calendar"></i>
+                        <label for="arrival_date" class="sr-only">Arrival Date</label>
+                        <input type="date" id="arrival_date" name="arrival_date" placeholder="Arrival Date" required>
+                    </div>
+                    <div class="form-input-group">
+                        <i class="fa fa-calendar"></i>
+                        <label for="departure_date" class="sr-only">Departure Date</label>
+                        <input type="date" id="departure_date" name="departure_date" placeholder="Departure Date" required>
                     </div>
     
                     <!-- Accommodation Preference -->
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group">
-                                <i class="fa fa-bed"></i>
-                                <select name="accommodation" class="" required>
-                                    <option value="" disabled selected>Accommodation Preference</option>
-                                    <option value="Hotel">Hotel</option>
-                                    <option value="Staying with Family/Friends">Staying with Family/Friends</option>
-                                    <option value="Other">Other</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group">
-                                <i class="fa fa-phone"></i>
-                                <input type="tel" name="Phone" pattern="^\+?[0-9]{1,4}?[-.\s]?([0-9]{1,4}[-.\s]?){1,6}$" placeholder="Your Phone" required>
-                            </div>
-                        </div>
+                    <div class="form-input-group">
+                        <i class="fa fa-bed"></i>
+                        <select name="accommodation" required>
+                            <option value="" disabled selected>Accommodation Preference</option>
+                            <option value="Hotel">Hotel</option>
+                            <option value="Staying with Family/Friends">Staying with Family/Friends</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-input-group">
+                        <i class="fa fa-phone"></i>
+                        <input type="tel" name="Phone" pattern="^\+?[0-9]{1,4}?[-.\s]?([0-9]{1,4}[-.\s]?){1,6}$" placeholder="Your Phone" required>
                     </div>
     
                     <!-- Submit Button -->
-                    <button type="submit" class="btn-fill rsvp-btn">
+                    <button type="submit" class="btn btn-accent rsvp-btn">
                         Submit Travel Details
                     </button>
                 </form>
+                <!-- Success Message -->
+                <div id="success-message" style="display: none; margin-top: 20px; color: green;">
+                    <p>Thank you! Your travel details have been submitted successfully.</p>
+                </div>
             </div>
         </div>
     </div>
-    
 </section>
+
+
+
+
 
 <footer>
     <div class="container">
@@ -209,6 +197,33 @@
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoU6ZfEWHI3Wk5-eIieaa5WNZk-zcPvOk&callback=initMap"></script>
 <!-- Google Analytics -->
+<script>
+    document.getElementById('travel-form').onsubmit = function(e) {
+        e.preventDefault(); // Prevent default form submission
+
+        // Submit the form data using AJAX to avoid reloading the page
+        var form = document.getElementById('travel-form');
+        var formData = new FormData(form);
+        
+        fetch(form.action, {
+            method: form.method,
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.result === 'success') {
+                document.getElementById('success-message').style.display = 'block';
+                form.reset(); // Reset the form after successful submission
+            } else {
+                alert('There was an issue submitting your details. Please try again.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred. Please try again later.');
+        });
+    };
+</script>
 <script>
     (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
